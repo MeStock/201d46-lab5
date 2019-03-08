@@ -11,14 +11,14 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
   var added = a + b;
-  var return_string = 'The sum of ' + a +  ' and ' + b + ' is 11.';
-  console.log('added: ' + added);
-  return [added, return_string];
+  var addedResponse = 'The sum of ' + a +  ' and ' + b + ' is ' + added + '.';
+  
+  return [added, addedResponse];
 }
 
 // Here is the test for sum(); uncomment it to run it
 // testSum(4, 7);
-testSum(4, 7);
+// testSum(4, 7);
 
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
@@ -35,6 +35,7 @@ Test this function by hand in the console to get it working, and when you think 
 function multiply(a, b) { //eslint-disable-line
   var multiply = a * b;
   var multResponse = 'The product of ' + a + ' and ' +  b + ' is ' + multiply + '.';
+  
   return [multiply, multResponse];
 }
 
@@ -56,13 +57,17 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  var sum = a + b + c;
-  var sumResponse = a + ' and ' + b + ' and ' + c + ' sum to ' + sum + '.';
-  
-  var product = a * b * c;
-  var productResponse = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product + '.';
+  var sumAB = sum(a , b);
+  var sumABC = sum(sumAB[0], c);
 
-  return [sum, product, sumResponse, productResponse];
+  var sumResponse = a + ' and ' + b + ' and ' + c + ' sum to ' + sumABC[0] + '.';
+  
+  var productAB = multiply(a, b);
+  var productABC = multiply(productAB[0], c);
+
+  var productResponse = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + productABC[0] + '.';
+
+  return [sumABC[0], productABC[0], sumResponse, productResponse];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -89,7 +94,7 @@ function sumArray(sumArr) { //eslint-disable-line
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+//testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
