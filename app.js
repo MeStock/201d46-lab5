@@ -17,7 +17,7 @@ function sum(a, b) { //eslint-disable-line
 }
 
 // Here is the test for sum(); uncomment it to run it
-// testSum(4, 7);
+testSum(4, 7);
 // testSum(4, 7);
 
 
@@ -148,10 +148,30 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
+  var storageArray= [1];
+  var productAnyArrayResponse = 'The numbers ';
 
+  for(var i = 0; i < dynamicArray.length; i++){
+    var productAnyArray = multiply(storageArray[i], dynamicArray[i]);
+
+    var j = 0;
+    storageArray.push(productAnyArray[j]);
+    j = j + 2;
+
+    productAnyArrayResponse = productAnyArrayResponse.concat(dynamicArray[i]);
+    if(i < (dynamicArray.length - 1)) {
+      productAnyArrayResponse = productAnyArrayResponse.concat(',');
+    }
+  }
+    
+  productAnyArrayResponse = productAnyArrayResponse.concat(' ', 'have a product of');
+  productAnyArrayResponse = productAnyArrayResponse.concat(' ', productAnyArray[0]);
+  productAnyArrayResponse = productAnyArrayResponse.concat('.');
+
+  return [productAnyArray[0], productAnyArrayResponse];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
